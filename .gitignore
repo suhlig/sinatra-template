@@ -1,0 +1,6 @@
+.DS_Store
+.bundle
+.byebug_history
+.cache_rake_t
+.envrc
+vendor/

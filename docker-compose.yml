@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: sinatra-template/web
+    environment:
+      RACK_ENV: production
+      DB_URL: "postgres://db-user:db-password@db/sinatra-template-db"
+    depends_on:
+      - db
+    ports:
+      - '80:9292'
+
+  db:
+    image: 'postgres:alpine'
+    environment:
+      POSTGRES_USER: db-user
+      POSTGRES_PASSWORD: db-password
+      POSTGRES_DB: sinatra-template-db

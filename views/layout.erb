@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="de">
+  <head>
+    <title><%= title %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-default.min.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <header>
+      <a href="/" class="button">Home</a>
+    </header>
+
+    <h1><%= title %></h1>
+
+    <%= yield %>
+
+    <footer>
+      <p>
+        &copy; <%= Time.now.year %> <a href="https://github.com/suhlig">Steffen Uhlig</a>
+        |
+        <a href="https://github.com/suhlig/sinatra-template">Quellcode</a>
+      </p>
+    </footer>
+  </body>
+</html>
