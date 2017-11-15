@@ -65,6 +65,7 @@ GEM
     parallel (1.12.0)
     parser (2.4.0.2)
       ast (~> 2.3)
+    pg (0.21.0)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -112,6 +113,7 @@ GEM
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     safe_yaml (1.0.4)
+    sequel (5.2.0)
     shellany (0.0.1)
     sinatra (2.0.0)
       mustermann (~> 1.0)
@@ -152,6 +154,7 @@ PLATFORMS
 DEPENDENCIES
   guard-bundler
   guard-rspec
+  pg
   pry-byebug
   puma
   rack-test
@@ -159,6 +162,7 @@ DEPENDENCIES
   rerun
   rspec
   rubocop
+  sequel
   sinatra
   sinatra-contrib
   terminal-notifier

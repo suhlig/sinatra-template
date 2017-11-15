@@ -1,13 +1,18 @@
+<% entries.each do |entry| %>
+  <p><%= entry[:created_at] %>: <%= entry[:text] %></p>
+<% end %>
+
 <form method="POST">
   <fieldset>
-    <legend>Quelle</legend>
+    <legend>Text</legend>
     <div class="input-group fluid">
-      <label for="url">URL</label>
-      <input id="url"
-             type="url"
-             name="url"
-             value="<%= url %>"
-             placeholder="e.g. http://www.example.com"
+      <label for="entry">Text</label>
+      <input id="entry"
+             type="textarea"
+             name="text"
+             value="<%= text %>"
+             placeholder="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
+eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient"
       >
     </div>
   </fieldset>

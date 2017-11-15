@@ -5,7 +5,7 @@ services:
     image: sinatra-template/web
     environment:
       RACK_ENV: production
-      DB_URL: "postgres://db-user:db-password@db/sinatra-template-db"
+      DB: "postgres://db-user:db-password@db/sinatra-template-db"
     depends_on:
       - db
     ports:
@@ -17,3 +17,7 @@ services:
       POSTGRES_USER: db-user
       POSTGRES_PASSWORD: db-password
       POSTGRES_DB: sinatra-template-db
+
+    # TODO Enable this only in development
+    ports:
+      - '5432:5432'

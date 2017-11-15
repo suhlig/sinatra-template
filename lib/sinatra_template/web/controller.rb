@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sequel'
+
+DB = Sequel.connect(ENV.fetch('DB'))
 
 module SinatraTemplate
   module Web
@@ -13,18 +16,20 @@ module SinatraTemplate
       end
 
       get '/' do
+        protected!
         erb :index, layout: true, locals: {
           title: 'SinatraTemplate',
-          url: url,
+          text: @text,
         }
       end
 
       post '/' do
-        url = params[:url]
-        halt 422, "Error: Mandatory parameter 'url' is missing" if url.empty?
         protected!
-        "Thanks for #{url}"
+        DB[:entries].insert(text: params[:text])
+        redirect '/'
       end
+
+    private
 
       def protected!
         return if authorized?
@@ -35,6 +40,10 @@ module SinatraTemplate
       def authorized?
         @auth ||= Rack::Auth::Basic::Request.new(request.env)
         @auth.provided? && @auth.basic? && @auth.credentials && !@auth.credentials.first.empty?
+      end
+
+      def entries
+        DB[:entries].order(Sequel.desc(:created_at)).limit(10).all
       end
     end
   end
